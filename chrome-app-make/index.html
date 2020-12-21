@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script src="./clock.js" defer></script>
+  <script src="./gretting.js" defer></script>
+  <script src="./todo.js" defer></script>
+  <!-- <script src="./bg.js" defer></script> -->
+  <script src="./weather.js" defer></script>
+  <script src="https://kit.fontawesome.com/433848c43a.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="js-clock">
+      <h1></h1>
+    </div>
+    <!-- 이름을 적는 칸 -->
+      <!-- default값은 안보이게 되어 있어. 유저가 로컬스토리지에 없으면
+        showing을 이용해서 보이게 할꺼야 -->
+    <form class="js-form form">
+      <input type="text" placeholder="What is your Name?">
+    </form>
+    <h4 class="js-greetings greetings"></h4>
+    <!-- to-do 적는 칸 -->
+    <form class="js-toDoForm">
+      <input type="text" placeholder="Write a To Do here">
+    </form>
+    <!-- to-do 적은 내용 나오는 칸 -->
+    <ul class="js-toDoList">
+    </ul>
+    <!-- defaul값은 안보이게 되어 있어. 유저가 로컬스토리지에 있으면
+        showing을 이용해서 보이게 할꺼야 -->
+    <span class="js-bgchange">
+      배경화면 바꾸기 <i class="fas fa-sync-alt"></i>
+    </span>
+    <span class="js-weather"></span>
+  </div>
+</body>
+</html>

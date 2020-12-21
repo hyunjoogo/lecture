@@ -1,0 +1,157 @@
+#chat-screen {
+  background-color: #abc1d1;
+  height: 500vh;
+}
+
+#chat-screen .status-bar,
+#chat-screen .alt-header {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background-color: #abc1d1;
+  box-sizing: border-box;
+}
+
+#chat-screen .alt-header {
+  top: 25px;
+}
+@keyframes fadeinleft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeinRight {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.main-chat {
+  margin-top: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat_timestamp {
+  background-color: #92a4b2;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.message-row {
+  width: 100%;
+  display: flex;
+  margin-bottom: 25px;
+  animation: fadeinleft 0.7s linear backwards;
+}
+
+.message-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 30%;
+  margin-right: 10px;
+}
+
+.message-row__info {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+.message-row__bubble {
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+  margin-right: 5px;
+  border-top-left-radius: 0px;
+}
+
+.message-row__time {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message-row--own {
+  width: 100%;
+  justify-content: flex-end;
+  animation: fadeinRight 0.7s linear backwards;
+  animation-delay: 1.5s;
+}
+
+.message-row--own .message-row__bubble {
+  background-color: var(--yellow);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 0px;
+  margin-right: 0px;
+  margin-left: 5px;
+}
+.message-row--own .message-row__info {
+  flex-direction: row-reverse;
+}
+
+.reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 25px;
+  box-sizing: border-box;
+}
+.reply .reply__column:first-child {
+  width: 10%;
+}
+.reply .reply__column:last-child {
+  width: 90%;
+  position: relative;
+}
+.reply input {
+  padding-left: 10px;
+  font-size: 20px;
+  height: 45px;
+  width: 100%;
+  border: var(--main-border);
+  border-radius: 20px;
+}
+
+.reply i {
+  opacity: 0.6;
+}
+.reply__column:last-child > i,
+.reply__column:last-child button {
+  position: absolute;
+  right: 0;
+  top: 5px;
+}
+
+.reply__column:last-child > i {
+  right: 40px;
+  top: 10px;
+  margin-right: 15px;
+}
+
+.reply__column button {
+  background-color: var(--yellow);
+  border: none;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.reply__column button i {
+  opacity: 1;
+}

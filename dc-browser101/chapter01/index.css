@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+div {
+  background-color: indianred;
+  /* 컨텐츠만 감싸게 하고 싶다면 inline-block */
+  display: inline-block;
+}

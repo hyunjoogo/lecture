@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #ab47bc;
+      }
+      div {
+        background-color: #790e8b;
+        width: 200px;
+        height: 200px;
+        margin: 10px 0;
+        color: white;
+      }
+      .here {
+        background-color: #df78ef;
+      }
+      .btns {
+        background-color: inherit;
+        width: auto;
+        height: auto;
+        display: inline-block;
+        position: fixed;
+        top: 10px;
+        left: 70%;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div class="here"></div>
+    <div></div>
+    <div></div>
+    <!-- 맨 밑에 깔아주고 fixed로 고정 -->
+    <div class="btns">
+      <button class="scroll-by-100">Scroll by 100px(y)</button>
+      <button class="scroll-to-100">Scroll to 100px(y)</button>
+      <button class="scroll-here">Scroll into Here</button>
+    </div>
+    <script>
+      const here = document.querySelector(".here");
+      // 따로 지정된 박스만 눌렀을 때 정보가 나오게 설정
+      // 항상 이벤트에는 event라는 오브젝트가 전달이 된다. 클릭이 되면
+      here.addEventListener("click", (event) => {
+        // element의 위치 정보를 오브젝트로 뽑아낸다
+        console.log(event);
+        const rect = here.getBoundingClientRect();
+        console.log(rect);
+        console.log(`Client: ${event.clientX}, ${event.clientY}`);
+        console.log(`Page: ${event.pageX}, ${event.pageY}`);
+      });
+      const scrollByBtn = document.querySelector(".scroll-by-100");
+      scrollByBtn.addEventListener("click", () => {
+        window.scrollBy({
+          top: 100,
+          left: 0,
+          behavior: "smooth",
+        });
+        console.log("현재 위치 기준으로 이동(상대위치) => 100px씩 이동");
+      });
+      const scrollToBtn = document.querySelector(".scroll-to-100");
+      scrollToBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 100,
+          left: 0,
+          behavior: "smooth",
+        });
+        console.log("왼쪽 상단 기준으로 이동(절대위치) => 100px로 이동");
+      });
+      const scrollIntoBtn = document.querySelector(".scroll-here");
+      scrollIntoBtn.addEventListener("click", () => {
+        here.scrollIntoView({ behavior: "smooth" });
+        console.log("Here Div 위치로 이동 => ");
+      });
+    </script>
+  </body>
+</html>

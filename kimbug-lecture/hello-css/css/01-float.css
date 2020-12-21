@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+a {
+  font-size: 18px;
+  line-height: 20px;
+  color: #8492a6;
+  text-decoration: none;
+}
+
+/* ▼ WHERE YOUR CODE BEGINS */
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+.tab-menu {
+  border-bottom: 1px solid #e5eaef;
+  max-width: 540px;
+}
+
+.tab-menu::after {
+  content: "";
+  clear: left;
+  display: block;
+}
+
+.tab-menu-item a {
+  padding: 16px 20px;
+  display: block;
+}
+
+.tab-menu-item {
+  float: left;
+  margin-right: 16px;
+}
+
+.tab-menu-item.selected a {
+  color: #2860e1;
+  border-bottom: 2px solid #2860e1;
+  font-weight: 500;
+}
