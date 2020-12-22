@@ -69,6 +69,8 @@ body {
   background-color: var(--color-white);
   text-align: center;
   padding: 10px 20px;
+  height: 400px;
+  overflow-y: scroll;
 }
 
 /* Main Content setting */
@@ -86,6 +88,17 @@ body {
 .main-content__check,
 .main-content__icon {
   background-color: inherit;
+}
+
+.done,
+.notdone {
+  color: var(--color-pink);
+}
+
+.fall {
+  transition: all 800ms ease-in-out;
+  transform: translateY(100px) rotateZ(20deg);
+  opacity: 0;
 }
 
 .trash {

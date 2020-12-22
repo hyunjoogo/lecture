@@ -27,7 +27,8 @@ function deleteCheck(e) {
   // }
   switch (itemClassName) {
     case "far fa-trash-alt trash":
-      deleteli.remove();
+      deleteli.classList.add("fall");
+      deleteli.addEventListener("transitionend", () => deleteli.remove());
       break;
     case "far fa-circle notdone":
       item.className = "fas fa-check-circle done";
