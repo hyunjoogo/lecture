@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
+      rel="stylesheet"
+    />
+    <script src="main.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/433848c43a.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Shopping List</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="menu">
+        <h1 class="menu-title">Shopping List</h1>
+      </section>
+      <section class="main">
+        <select name="sort" class="sort-select">
+          <option value="all" class="all" selected>All</option>
+          <option value="done" class="done">Done</option>
+          <option value="notdone" class="notdone">Not Done</option>
+        </select>
+        <div class="main-content">
+          <ul class="main-content-list">
+            <li class="main-content-item">
+              <button type="button" class="main-content__check">
+                <i class="fas fa-check"></i>
+              </button>
+              <span class="main-content__text">기본 테스트</span>
+              <button type="button" class="main-content__icon">
+                <i class="far fa-trash-alt trash"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <form action="" class="insert-text">
+          <input type="text" class="insert-text__input" />
+        </form>
+      </section>
+      <section class="footer">
+        <i class="fas fa-plus-circle add-input__icon"></i>
+      </section>
+    </div>
+  </body>
+</html>
