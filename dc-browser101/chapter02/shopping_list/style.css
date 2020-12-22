@@ -1,0 +1,114 @@
+/* common setting */
+:root {
+  /* Color */
+  --color-white: white;
+  --color-pink: #f06292;
+  --color-dark-pink: #ba2d65;
+  --color-light-pink: #ffc1e3;
+
+  /* Size */
+  --font-large: 30px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Gugi", cursive;
+}
+
+h1 {
+  font-size: var(--font-large);
+}
+
+ul,
+li,
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+button:active {
+  border: none;
+}
+/* Body settings */
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b3e5fc;
+}
+
+.wrapper {
+  background: rgb(244, 143, 177);
+  background: radial-gradient(
+    circle,
+    rgba(244, 143, 177, 1) 87%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-radius: 10px;
+}
+
+/* Menu setting */
+.menu {
+  width: 375px;
+  padding: 10px 20px;
+  color: var(--color-white);
+  text-align: center;
+}
+
+/* Main setting */
+
+.main {
+  background-color: var(--color-white);
+  text-align: center;
+  padding: 10px 20px;
+}
+
+/* Main Content setting */
+
+.main-content-list {
+  padding: 10px 0;
+}
+
+.main-content-item {
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-content__icon {
+  background-color: inherit;
+}
+
+.trash {
+  color: var(--color-light-pink);
+}
+.trash:hover {
+  color: var(--color-dark-pink);
+  transition: color 500ms ease-in-out;
+}
+
+/* Main Input setting */
+.insert-text__input {
+  width: 100%;
+}
+
+/* Footer setting */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.add-input__icon {
+  font-size: var(--font-large);
+  color: var(--color-white);
+}
