@@ -95,10 +95,8 @@ body {
   color: var(--color-pink);
 }
 
-.fall {
-  transition: all 800ms ease-in-out;
-  transform: translateY(100px) rotateZ(20deg);
-  opacity: 0;
+.check-line {
+  text-decoration: line-through;
 }
 
 .trash {
@@ -107,6 +105,12 @@ body {
 .trash:hover {
   color: var(--color-dark-pink);
   transition: color 500ms ease-in-out;
+}
+
+.fall {
+  transition: all 800ms ease-in-out;
+  transform: translateY(100px) rotateZ(20deg);
+  opacity: 0;
 }
 
 /* Main Input setting */

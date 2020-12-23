@@ -3,41 +3,31 @@ const input = document.querySelector(".insert-text__input");
 const list = document.querySelector(".main-content-list");
 const trashBtn = document.querySelector(".main-content__icon");
 
-// trash 버튼 이벤트 fas fa-check-circle done
+// sort 동작
 
-// function changeBtn(e) {
-//   const item = e.target;
-//   if (item.className === "far fa-circle notdone") {
-//     item.className = "fas fa-check-circle done";
-//   } else {
-//     console.log("no");
-//   }
-// }
+// li안 버튼 동작내용
 
 function deleteCheck(e) {
   const item = e.target;
   const itemClassName = item.className;
   const deleteli = e.toElement.parentNode.parentNode;
-  // if (item.className === "far fa-trash-alt trash") {
-  //   deleteli.remove();
-  // } else if (item.className === "far fa-circle notdone") {
-  //   changeBtn(e);
-  // } else {
-  //   return;
-  // }
+  const lineSpan = item.parentNode.parentNode.querySelector("span");
   switch (itemClassName) {
     case "far fa-trash-alt trash":
       deleteli.classList.add("fall");
       deleteli.addEventListener("transitionend", () => deleteli.remove());
+      console.log(deleteli);
       break;
     case "far fa-circle notdone":
       item.className = "fas fa-check-circle done";
+      lineSpan.classList.toggle("check-line");
       break;
     case "fas fa-check-circle done":
       item.className = "far fa-circle notdone";
+      lineSpan.classList.toggle("check-line");
       break;
     default:
-      console.log("none");
+      return;
   }
 }
 

@@ -23,9 +23,9 @@
       </section>
       <section class="main">
         <select name="sort" class="sort-select">
-          <option value="all" class="all" selected>All</option>
-          <option value="done" class="done">Done</option>
-          <option value="notdone" class="notdone">Not Done</option>
+          <option value="all" value="all" selected>All</option>
+          <option value="done" value="done">Done</option>
+          <option value="notdone" value="notdone">Not Done</option>
         </select>
         <div class="main-content">
           <ul class="main-content-list">
@@ -33,7 +33,7 @@
               <button type="button" class="main-content__check">
                 <i class="far fa-circle notdone"></i>
               </button>
-              <span class="main-content__text">기본 테스트</span>
+              <span class="main-content__text">리스트 적는 칸</span>
               <button type="button" class="main-content__icon">
                 <i class="far fa-trash-alt trash"></i>
               </button>
@@ -41,10 +41,10 @@
           </ul>
         </div>
       </section>
+      <form action="" class="insert-text">
+        <input type="text" class="insert-text__input" />
+      </form>
       <section class="footer">
-        <form action="" class="insert-text">
-          <input type="text" class="insert-text__input" />
-        </form>
         <i class="fas fa-plus-circle add-input__icon"></i>
       </section>
     </div>
