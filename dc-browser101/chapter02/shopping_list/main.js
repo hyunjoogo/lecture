@@ -2,8 +2,17 @@
 const input = document.querySelector(".insert-text__input");
 const list = document.querySelector(".main-content-list");
 const trashBtn = document.querySelector(".main-content__icon");
+const filterBtn = document.querySelector(".sort-select");
 
 // sort 동작
+
+function filter(e) {
+  const filterLists = list.childNodes;
+  console.log(e.target.value);
+  console.log(filterLists);
+}
+
+filterBtn.addEventListener("click", filter);
 
 // li안 버튼 동작내용
 
@@ -16,22 +25,23 @@ function deleteCheck(e) {
     case "far fa-trash-alt trash":
       deleteli.classList.add("fall");
       deleteli.addEventListener("transitionend", () => deleteli.remove());
-      console.log(deleteli);
       break;
     case "far fa-circle notdone":
       item.className = "fas fa-check-circle done";
       lineSpan.classList.toggle("check-line");
+      deleteli.setAttribute("value", "done");
       break;
     case "fas fa-check-circle done":
       item.className = "far fa-circle notdone";
       lineSpan.classList.toggle("check-line");
+      deleteli.setAttribute("value", "notdone");
       break;
     default:
       return;
   }
 }
 
-document.addEventListener("click", deleteCheck);
+list.addEventListener("click", deleteCheck);
 
 // submit하면 발생하는 이벤트
 function addList(event) {
@@ -40,6 +50,7 @@ function addList(event) {
   // li 추가
   const li = document.createElement("li");
   li.setAttribute("class", "main-content-item");
+  li.setAttribute("value", "notdone");
   list.appendChild(li);
   // li 안에 completeBtn 추가
   const completeBtn = document.createElement("button");
