@@ -65,13 +65,16 @@ body {
 .clickbox {
   width: 100%;
   height: 50%;
+  position: relative;
 }
 
 .carrot {
   width: 50px;
   height: 50px;
+  position: absolute;
 }
 .bug {
   width: 50px;
   height: 50px;
+  position: absolute;
 }

@@ -1,21 +1,27 @@
 const clickBox = document.querySelector(".clickbox");
 const playBtn = document.querySelector(".playBtn");
+const carrot = document.querySelector(".carrot");
+const bug = document.querySelector(".bug");
 
 // Item 생성
 function makeItem() {
   for (let i = 0; i < 8; i++) {
-    const carrot = new Image();
-    carrot.src = "img/carrot.png";
-    carrot.setAttribute("class", "carrot");
-    clickBox.appendChild(carrot);
+    const carrotImg = new Image();
+    carrotImg.src = "img/carrot.png";
+    carrotImg.setAttribute("class", "carrot");
+    carrotImg.style.left = `${getRandomInt(0, 520)}px`;
+    carrotImg.style.top = `${getRandomInt(0, 110)}px`;
+    clickBox.appendChild(carrotImg);
   }
-  console.log(getRandomInt(5, 10));
+
   const randomBug = getRandomInt(5, 10);
   for (let i = 0; i < randomBug; i++) {
-    const bug = new Image();
-    bug.src = "img/bug.png";
-    bug.setAttribute("class", "bug");
-    clickBox.appendChild(bug);
+    const bugImg = new Image();
+    bugImg.src = "img/bug.png";
+    bugImg.setAttribute("class", "bug");
+    bugImg.style.left = `${getRandomInt(0, 520)}px`;
+    bugImg.style.top = `${getRandomInt(0, 110)}px`;
+    clickBox.appendChild(bugImg);
   }
 }
 
@@ -25,6 +31,9 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// function spreadItem(event) {}
+function spreadItem() {
+  getRandomInt();
+  console.log(getRandomInt(5, 10));
+}
 
 playBtn.addEventListener("click", makeItem);
