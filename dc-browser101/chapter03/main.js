@@ -1,7 +1,8 @@
+"use strict";
 const clickBox = document.querySelector(".clickbox");
 const playBtn = document.querySelector(".playBtn");
-const carrot = document.querySelector(".carrot");
-const bug = document.querySelector(".bug");
+// const carrot = document.querySelector(".carrot");
+// const bug = document.querySelector(".bug");
 
 // Item 생성
 function makeItem() {
@@ -9,6 +10,7 @@ function makeItem() {
     const carrotImg = new Image();
     carrotImg.src = "img/carrot.png";
     carrotImg.setAttribute("class", "carrot");
+    carrotImg.setAttribute("carrotNum", i);
     carrotImg.style.left = `${getRandomInt(0, 520)}px`;
     carrotImg.style.top = `${getRandomInt(0, 110)}px`;
     clickBox.appendChild(carrotImg);
@@ -24,16 +26,44 @@ function makeItem() {
     clickBox.appendChild(bugImg);
   }
 }
-
+// 난수 생성 함수
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+playBtn.addEventListener("click", makeItem);
 
-function spreadItem() {
-  getRandomInt();
-  console.log(getRandomInt(5, 10));
+function startGame(e) {
+  const target = e.target;
+  if (target.className === "carrot") {
+    console.log("continue Game");
+  } else if (target.className === "bug") {
+    loseGame();
+  } else {
+    return;
+  }
 }
 
-playBtn.addEventListener("click", makeItem);
+function loseGame() {
+  const body = document.querySelector("body");
+  body.insertAdjacentHTML(
+    "beforeend",
+    `<div class="endbox">
+      <div class="regamebox">
+        <i class="fas fa-redo regame"></i>
+      </div>
+      <span class="endbox-text">😢YOU LOSE😢</span>
+    </div>`
+  );
+  const regame = document.querySelector(".regame");
+  regame.addEventListener("click", (event) => {
+    if (event.target.className === "fas fa-redo regame") {
+      console.log("regame");
+    } else {
+      return;
+    }
+  });
+}
+
+clickBox.addEventListener("click", startGame);
