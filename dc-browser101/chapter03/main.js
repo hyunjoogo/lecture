@@ -6,6 +6,8 @@ const playBtn = document.querySelector(".playBtn");
 
 // Item 생성
 function makeItem() {
+  let arr = [];
+  console.log(arr);
   for (let i = 0; i < 8; i++) {
     const carrotImg = new Image();
     carrotImg.src = "img/carrot.png";
@@ -14,6 +16,7 @@ function makeItem() {
     carrotImg.style.left = `${getRandomInt(0, 520)}px`;
     carrotImg.style.top = `${getRandomInt(0, 110)}px`;
     clickBox.appendChild(carrotImg);
+    arr.push(carrotImg);
   }
 
   const randomBug = getRandomInt(5, 10);
@@ -25,6 +28,8 @@ function makeItem() {
     bugImg.style.top = `${getRandomInt(0, 110)}px`;
     clickBox.appendChild(bugImg);
   }
+
+  return arr;
 }
 // 난수 생성 함수
 function getRandomInt(min, max) {
@@ -34,15 +39,20 @@ function getRandomInt(min, max) {
 }
 playBtn.addEventListener("click", makeItem);
 
-function startGame(e) {
+function startGame(e, arr) {
   const target = e.target;
   if (target.className === "carrot") {
     console.log("continue Game");
+    continueGame(arr);
   } else if (target.className === "bug") {
     loseGame();
   } else {
     return;
   }
+}
+
+function continueGame(arr) {
+  console.log(arr);
 }
 
 function loseGame() {
@@ -56,6 +66,7 @@ function loseGame() {
       <span class="endbox-text">😢YOU LOSE😢</span>
     </div>`
   );
+
   const regame = document.querySelector(".regame");
   regame.addEventListener("click", (event) => {
     if (event.target.className === "fas fa-redo regame") {
