@@ -25,7 +25,6 @@ const inputs = document.querySelectorAll(".controls input");
 
 function handleUpdate() {
   const suffix = this.dataset.sizing || "";
-  console.log(`name : ${this.name}, value : ${this.value}`);
   document.documentElement.style.setProperty(
     `--${this.name}`,
     this.value + suffix
