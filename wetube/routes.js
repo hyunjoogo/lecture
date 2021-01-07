@@ -1,6 +1,6 @@
 // 여기다가 각종 경로들 저장
 // Global
-const HOME = "/home";
+const HOME = "/";
 const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
