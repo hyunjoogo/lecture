@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Canvas</title>
+  </head>
+  <body>
+    <canvas id="draw" width="600" height="600"></canvas>
+    <div class="controls">
+      <label for="width">크기</label>
+      <input type="range" id="width" min="10" max="100" value="10" />
+
+      <label for="color">색상</label>
+      <input type="color" id="color" value="#000000" />
+    </div>
+    <script>
+      const canvas = document.querySelector("canvas");
+      const colorInput = document.querySelector("#color");
+      const widthInput = document.querySelector("#width");
+      const ctx = canvas.getContext("2d");
+
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+
+      ctx.fillStyle = "orange";
+      ctx.lineWidth = 30;
+
+      function widthUpdate(e) {
+        ctx.lineWidth = this.value;
+      }
+
+      function colorUpdate(e) {
+        ctx.strokeStyle = this.value;
+      }
+
+      widthInput.addEventListener("change", widthUpdate); // 브러쉬 크기 조절
+      colorInput.addEventListener("change", colorUpdate); // 브러쉬 색상 조절
+
+      let isDrawing = false;
+
+      function draw(e) {
+        if (!isDrawing) return;
+        ctx.beginPath();
+        ctx.moveTo(e.clientX, e.clientY); // 시작점
+        ctx.lineTo(e.offsetX, e.clientY); // 끝점
+        ctx.stroke();
+      }
+
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("mousedown", () => (isDrawing = true));
+      canvas.addEventListener("mouseup", () => (isDrawing = false));
+      canvas.addEventListener("mouseout", () => (isDrawing = false));
+    </script>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+      body {
+        background-color: black;
+      }
+      canvas {
+        background-color: white;
+      }
+
+      :root {
+        --color: #000000;
+        --width: 10;
+      }
+      .controls {
+        color: white;
+      }
+    </style>
+  </body>
+</html>
