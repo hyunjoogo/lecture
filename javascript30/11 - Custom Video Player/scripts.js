@@ -7,7 +7,7 @@ const progressBar = player.querySelector(".progress__filled");
 const toggle = player.querySelector(".toggle");
 const stopButton = player.querySelector(".stop");
 const skipButtons = player.querySelectorAll("[data-skip]");
-const ranges = player.querySelectorAll(".playter__slider");
+const ranges = player.querySelectorAll(".player__slider");
 const playTime = player.querySelector(".time");
 
 const totalTime = video.duration;
@@ -61,37 +61,15 @@ function skipVideo(currentTime, skipTime) {
 function setTime() {
   let minutes = Math.floor(video.currentTime / 60);
   let seconds = Math.floor(video.currentTime - minutes * 60);
-  let minuteValue;
-  let secondValue;
-
-  if (minutes < 10) {
-    minuteValue = `0${minutes}`;
-  } else {
-    minuteValue = `${minutes}`;
-  }
-
-  if (seconds < 10) {
-    secondValue = `0${seconds}`;
-  } else {
-    secondValue = `${seconds}`;
-  }
+  let minuteValue = minutes < 10 ? `0${minutes}` : `${minutes}`;
+  let secondValue = seconds < 10 ? `0${seconds}` : `${seconds}`;
 
   let totalMinutes = Math.floor(video.duration / 60);
   let totalSeconds = Math.floor(video.duration - totalMinutes * 60);
-  let totalMinuteValue;
-  let totalSecondValue;
-
-  if (totalMinutes < 10) {
-    totalMinuteValue = `0${totalMinutes}`;
-  } else {
-    totalMinuteValue = `${totalMinutes}`;
-  }
-
-  if (totalSeconds < 10) {
-    totalSecondValue = `0${totalSeconds}`;
-  } else {
-    totalSecondValue = `${totalSeconds}`;
-  }
+  let totalMinuteValue =
+    totalMinutes < 10 ? `0${totalMinutes}` : `${totalMinutes}`;
+  let totalSecondValue =
+    totalSeconds < 10 ? `0${totalSeconds}` : `${totalSeconds}`;
 
   let mediaTime = `${minuteValue}:${secondValue} / ${totalMinuteValue}:${totalSecondValue}`;
   playTime.textContent = mediaTime;
@@ -100,12 +78,20 @@ function setTime() {
   progressBar.style.flexBasis = barLength + "%";
 } // 대문자 css property중 - 있으면 빼고 - 다음 문자 대문자
 
+function handleRanges() {
+  if (this.name === "volume") {
+    video.volume = this.value;
+  } else if (this.name === "playbackRate") {
+    video.playbackRate = this.value;
+  }
+}
+
 skipButtons.forEach((button) =>
   button.addEventListener("click", backForwardVideo)
 );
 document.addEventListener("keydown", handleKeyVideo);
 stopButton.addEventListener("click", stopVideo);
 toggle.addEventListener("click", playPauseVideo);
-
+ranges.forEach((input) => input.addEventListener("change", handleRanges));
 video.addEventListener("ended", stopVideo);
 video.addEventListener("timeupdate", setTime);
