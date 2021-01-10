@@ -21,6 +21,7 @@ function playPauseVideo() {
     toggle.innerText = "►";
   }
 }
+
 function stopVideo() {
   video.pause();
   video.currentTime = 0;
@@ -35,27 +36,14 @@ function handleKeyVideo(e) {
     // 뒤로 / 앞으로 / 불륨 업 /다운
     case "ArrowLeft":
     case "ArrowRight":
-      backForwardVideo();
+      skipVideo();
       console.log(e);
       break;
   }
 }
 
-function backForwardVideo() {
-  const skip = this.dataset.skip;
-  let currentTime = video.currentTime;
-  if (skip === "25") {
-    skipVideo(currentTime, skip);
-  } else {
-    skipVideo(currentTime, skip);
-  }
-}
-
-function skipVideo(currentTime, skipTime) {
-  const NumSkipTime = Number(skipTime);
-  let skipedTime = currentTime + NumSkipTime;
-  video.currentTime = skipedTime;
-  video.play();
+function skipVideo() {
+  video.currentTime += Number(this.dataset.skip);
 }
 
 function setTime() {
@@ -75,23 +63,36 @@ function setTime() {
   playTime.textContent = mediaTime;
 
   let barLength = (video.currentTime / video.duration) * 100;
-  progressBar.style.flexBasis = barLength + "%";
+  progressBar.style.flexBasis = `${barLength}%`;
 } // 대문자 css property중 - 있으면 빼고 - 다음 문자 대문자
 
 function handleRanges() {
-  if (this.name === "volume") {
-    video.volume = this.value;
-  } else if (this.name === "playbackRate") {
-    video.playbackRate = this.value;
-  }
+  // if (this.name === "volume") {
+  //   video.volume = this.value;
+  // } else if (this.name === "playbackRate") {
+  //   video.playbackRate = this.value;
+  // }
+  video[this.name] = this.value;
 }
 
-skipButtons.forEach((button) =>
-  button.addEventListener("click", backForwardVideo)
-);
-document.addEventListener("keydown", handleKeyVideo);
-stopButton.addEventListener("click", stopVideo);
+function scrub(e) {
+  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+  video.currentTime = scrubTime;
+}
+
+video.addEventListener("click", playPauseVideo);
 toggle.addEventListener("click", playPauseVideo);
-ranges.forEach((input) => input.addEventListener("change", handleRanges));
 video.addEventListener("ended", stopVideo);
+stopButton.addEventListener("click", stopVideo);
 video.addEventListener("timeupdate", setTime);
+
+document.addEventListener("keydown", handleKeyVideo);
+
+skipButtons.forEach((button) => button.addEventListener("click", skipVideo));
+ranges.forEach((input) => input.addEventListener("change", handleRanges));
+
+let mousedown = false;
+progress.addEventListener("click", scrub);
+progress.addEventListener("mousemove", (e) => mousedown && scrub(e));
+progress.addEventListener("mousedown", () => (mousedown = true));
+progress.addEventListener("mouseup", () => (mousedown = false));
