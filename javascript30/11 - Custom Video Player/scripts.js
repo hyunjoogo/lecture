@@ -10,7 +10,6 @@ const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".playter__slider");
 const playtime = player.querySelector(".player__time");
 
-let currentTime = video.currentTime;
 const totalTime = video.duration;
 
 function playPauseVideo() {
@@ -27,5 +26,49 @@ function stopVideo() {
   video.currentTime = 0;
 }
 
+function handleKeyVideo(e) {
+  console.log(e.code);
+  switch (e.code) {
+    case "Space":
+      playPauseVideo();
+      break;
+    // 뒤로 / 앞으로 / 불륨 업 /다운
+    case "ArrowLeft":
+    case "ArrowRight":
+      backForwardVideo();
+      console.log(e);
+      break;
+  }
+}
+
+function backForwardVideo() {
+  const skip = this.dataset.skip;
+  let currentTime = video.currentTime;
+  if (skip === "25") {
+    skipVideo(currentTime, skip);
+  } else {
+    skipVideo(currentTime, skip);
+  }
+}
+
+function skipVideo(currentTime, skipTime) {
+  const NumSkipTime = Number(skipTime);
+  let skipedTime = currentTime + NumSkipTime;
+  video.currentTime = skipedTime;
+  video.play();
+}
+
+skipButtons.forEach((button) =>
+  button.addEventListener("click", backForwardVideo)
+);
+document.addEventListener("keydown", handleKeyVideo);
+stopButton.addEventListener("click", stopVideo);
 toggle.addEventListener("click", playPauseVideo);
 video.addEventListener("ended", stopVideo);
+
+// function showCurrentTime() {
+//   console.log(currentTime);
+//   console.log(video.duration);
+// }
+
+// showCurrentTime();

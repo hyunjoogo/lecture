@@ -84,13 +84,13 @@ body {
   background: rgba(0, 0, 0, 0.1);
 }
 
-.player:hover .player__controls {
+/* .player:hover .player__controls {
   transform: translateY(0);
 }
 
 .player:hover .progress {
   height: 15px;
-}
+} */
 
 .player__controls > * {
   flex: 1;
