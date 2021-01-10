@@ -95,7 +95,10 @@ function setTime() {
 
   let mediaTime = `${minuteValue}:${secondValue} / ${totalMinuteValue}:${totalSecondValue}`;
   playTime.textContent = mediaTime;
-}
+
+  let barLength = (video.currentTime / video.duration) * 100;
+  progressBar.style.flexBasis = barLength + "%";
+} // 대문자 css property중 - 있으면 빼고 - 다음 문자 대문자
 
 skipButtons.forEach((button) =>
   button.addEventListener("click", backForwardVideo)
@@ -103,12 +106,6 @@ skipButtons.forEach((button) =>
 document.addEventListener("keydown", handleKeyVideo);
 stopButton.addEventListener("click", stopVideo);
 toggle.addEventListener("click", playPauseVideo);
+
 video.addEventListener("ended", stopVideo);
 video.addEventListener("timeupdate", setTime);
-
-// function showCurrentTime() {
-//   console.log(currentTime);
-//   console.log(video.duration);
-// }
-
-// showCurrentTime();
