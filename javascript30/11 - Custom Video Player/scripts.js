@@ -8,7 +8,7 @@ const toggle = player.querySelector(".toggle");
 const stopButton = player.querySelector(".stop");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".playter__slider");
-const playtime = player.querySelector(".player__time");
+const playTime = player.querySelector(".time");
 
 const totalTime = video.duration;
 
@@ -58,6 +58,45 @@ function skipVideo(currentTime, skipTime) {
   video.play();
 }
 
+function setTime() {
+  let minutes = Math.floor(video.currentTime / 60);
+  let seconds = Math.floor(video.currentTime - minutes * 60);
+  let minuteValue;
+  let secondValue;
+
+  if (minutes < 10) {
+    minuteValue = `0${minutes}`;
+  } else {
+    minuteValue = `${minutes}`;
+  }
+
+  if (seconds < 10) {
+    secondValue = `0${seconds}`;
+  } else {
+    secondValue = `${seconds}`;
+  }
+
+  let totalMinutes = Math.floor(video.duration / 60);
+  let totalSeconds = Math.floor(video.duration - totalMinutes * 60);
+  let totalMinuteValue;
+  let totalSecondValue;
+
+  if (totalMinutes < 10) {
+    totalMinuteValue = `0${totalMinutes}`;
+  } else {
+    totalMinuteValue = `${totalMinutes}`;
+  }
+
+  if (totalSeconds < 10) {
+    totalSecondValue = `0${totalSeconds}`;
+  } else {
+    totalSecondValue = `${totalSeconds}`;
+  }
+
+  let mediaTime = `${minuteValue}:${secondValue} / ${totalMinuteValue}:${totalSecondValue}`;
+  playTime.textContent = mediaTime;
+}
+
 skipButtons.forEach((button) =>
   button.addEventListener("click", backForwardVideo)
 );
@@ -65,6 +104,7 @@ document.addEventListener("keydown", handleKeyVideo);
 stopButton.addEventListener("click", stopVideo);
 toggle.addEventListener("click", playPauseVideo);
 video.addEventListener("ended", stopVideo);
+video.addEventListener("timeupdate", setTime);
 
 // function showCurrentTime() {
 //   console.log(currentTime);

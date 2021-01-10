@@ -60,14 +60,6 @@ body {
   border-color: #ffc600;
 }
 
-.player__time {
-  color: white;
-  font-size: large;
-  margin: 0;
-  text-align: center;
-  line-height: 1;
-}
-
 .player__slider {
   width: 10px;
   height: 30px;
