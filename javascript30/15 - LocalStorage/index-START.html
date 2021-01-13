@@ -77,7 +77,6 @@
       function fillList(plates = [], platesList) {
         platesList.innerHTML = plates
           .map((plate, i) => {
-            console.log(plate, i);
             return `
           <li data-index=${i}>
             <input type="checkbox" data-index=${i} id="item${i}" ${
@@ -88,16 +87,12 @@
           </li>`;
           })
           .join("");
-        console.log();
       }
       function toggleDone(e) {
         const index = e.target.dataset.index;
         if (e.target.matches("span")) {
-          console.log(e.target.parentNode);
           e.target.parentNode.remove();
-          console.table(items);
           delete items[index];
-          console.table(items);
           const cleanItems = items.filter(function (item) {
             return item;
           });
