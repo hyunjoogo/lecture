@@ -1,4 +1,10 @@
 extends layouts/main
 
 block content
-  h1 업로드 페이지
+  .form-container
+    form(action=`/videos${routes.upload}`, method="post")
+      label(for="file") Video File
+      input(type="file", id="file" name="title" required=true)
+      input(type="text", placeholder="Tile", name="title" required=true)
+      textarea(name="description", placegolder="Description")
+      input(type="submit", value="Upload Video")
