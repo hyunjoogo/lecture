@@ -1,0 +1,46 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.untiltime,
+.passtime {
+  border-radius: 5px;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.08);
+  margin: 20px 0;
+}
+
+.secprogress {
+  flex: 10;
+  position: relative;
+  display: flex;
+  flex-basis: 100%;
+  height: 5px;
+  transition: height 0.3s;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.secprogressbar {
+  width: 50%;
+  background: #ffc600;
+  flex: 0;
+  flex-basis: 100%;
+}
+
+.totalprogress {
+  flex: 10;
+  position: relative;
+  display: flex;
+  flex-basis: 100%;
+  height: 5px;
+  transition: height 0.3s;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.totalprogressbar {
+  width: 50%;
+  background: #ffc600;
+  flex: 0;
+  flex-basis: 100%;
+}
