@@ -17,7 +17,7 @@ const CHANGE_PASSWORD = "/change-password";
 
 const VIDEOS = "/videos";
 const UPLOAD = "/upload";
-const VIDEO_DETAIL = "/:id";
+const VIDEO_DETAIL = "/:id"; //  이름 바꾸어도 됨
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
 
