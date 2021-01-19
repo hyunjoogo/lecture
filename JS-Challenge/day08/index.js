@@ -28,10 +28,12 @@ function fillList(items = [], itemList) {
   itemList.innerHTML = items
     .map((item, i) => {
       return `
-  <li data-index=${i} id="${item.id}">
-    <input type="checkbox" data-index=${i} ${item.done ? "checked" : ""} />
+  <li data-index=${i}>
+    <input type="checkbox" data-index=${i} id="item${i}" ${
+        item.done ? "checked" : ""
+      } />
     <span data-index=${i}>${item.text}</span>
-    <button data-index=${i}>🖐</button>
+    <button data-index=${i}>🗑</button>
   </li>`;
     })
     .join("");
@@ -39,60 +41,48 @@ function fillList(items = [], itemList) {
 
 function deleteTodos(e) {
   const target = e.target;
-  const li = target.parentNode;
-  const ulListName = li.parentNode.className;
-  const index = target.dataset.index;
+  const targetParent = target.parentNode;
+  const ulListName = targetParent.parentNode.className;
+  const index = e.target.dataset.index;
   if (ulListName === "pendingtodo") {
-    li.remove();
+    targetParent.remove();
+    delete toDos[index];
     const cleanToDos = toDos.filter(function (toDo) {
-      return toDo.id !== parseInt(li.id);
+      return toDo;
     });
+    console.log(cleanToDos);
     toDos = cleanToDos;
     localStorage.setItem("PENDING", JSON.stringify(toDos));
   } else if (ulListName === "finishedtodo") {
-    li.remove();
+    targetParent.remove();
     delete finishToDos[index];
     const cleanToDos = finishToDos.filter(function (toDo) {
-      return toDo.id !== parseInt(li.id);
+      return toDo;
     });
+    console.log(cleanToDos);
     finishToDos = cleanToDos;
     localStorage.setItem("FINISHED", JSON.stringify(finishToDos));
   }
 }
 
 function toggleDone(e) {
-  const target = e.target;
-  const targetParent = target.parentNode;
-  const index = target.dataset.index;
-  const ulListName = targetParent.parentNode.className;
+  const index = e.target.dataset.index;
   if (e.target.matches("button")) {
     deleteTodos(e);
   } else if (e.target.matches("input")) {
-    if (ulListName === "pendingtodo") {
-      toDos[index].done = !toDos[index].done;
-      e.target.parentNode.remove();
-      const cleanToDos = toDos.filter(function (todo) {
-        return todo.done === false;
-      });
-      const moveToDos = toDos.filter(function (todo) {
-        return todo.done === true;
-      });
-      finishToDos.push(...moveToDos);
-      toDos = cleanToDos;
-    } else if (ulListName === "finishedtodo") {
-      finishToDos[index].done = !finishToDos[index].done;
-      e.target.parentNode.remove();
-      const cleanToDos = finishToDos.filter(function (todo) {
-        return todo.done === true;
-      });
-      const moveToDos = finishToDos.filter(function (todo) {
-        return todo.done === false;
-      });
-      toDos.push(...moveToDos);
-      finishToDos = cleanToDos;
-    }
+    toDos[index].done = !toDos[index].done;
+    e.target.parentNode.remove();
+    const cleanToDos = toDos.filter(function (a) {
+      return a.done === false;
+    });
+    const moveToDos = toDos.filter(function (a) {
+      return a.done === true;
+    });
+    finishToDos.push(...moveToDos);
+    toDos = cleanToDos;
     localStorage.setItem("PENDING", JSON.stringify(toDos));
     localStorage.setItem("FINISHED", JSON.stringify(finishToDos));
+    console.log(toDos, finishToDos);
     fillList(toDos, pendingTodo);
     fillList(finishToDos, finishedTodo);
   } else {
@@ -100,7 +90,32 @@ function toggleDone(e) {
   }
 }
 
-finishedTodo.addEventListener("click", toggleDone);
+function toggleNotDone(e) {
+  const index = e.target.dataset.index;
+  if (e.target.matches("button")) {
+    deleteTodos(e);
+  } else if (e.target.matches("input")) {
+    finishToDos[index].done = !finishToDos[index].done;
+    e.target.parentNode.remove();
+    const cleanToDos = finishToDos.filter(function (a) {
+      return a.done === true;
+    });
+    const moveToDos = finishToDos.filter(function (a) {
+      return a.done === false;
+    });
+    toDos.push(...moveToDos);
+    finishToDos = cleanToDos;
+    localStorage.setItem("PENDING", JSON.stringify(toDos));
+    localStorage.setItem("FINISHED", JSON.stringify(finishToDos));
+    console.log(toDos, finishToDos);
+    fillList(toDos, pendingTodo);
+    fillList(finishToDos, finishedTodo);
+  } else {
+    return;
+  }
+}
+
+finishedTodo.addEventListener("click", toggleNotDone);
 pendingTodo.addEventListener("click", toggleDone);
 addTodos.addEventListener("submit", addItem);
 
