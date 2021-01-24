@@ -1,0 +1,13 @@
+.middle {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.middle-right {
+  height: 100%;
+}
+
+.middle-left {
+  height: 100%;
+}
