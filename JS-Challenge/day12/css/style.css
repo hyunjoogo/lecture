@@ -1,0 +1,70 @@
+@import "topbar.css";
+@import "togglebtn.css";
+@import "frame.css";
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  /* color*/
+  --color-background: #222529; /* 배경색상 */
+  --color-font: #ffffff;
+  --color-point: #dcbc95;
+  --color-subfont: #cccdcd;
+  --color-menu: #2d3034;
+}
+
+a  {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font-family: "DM sans",  sans-serif;
+}
+
+input {
+  border: none;
+  background-color: inherit;
+  border-bottom: 2px solid white;
+  caret-color: white;
+  text-align: center;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+}
+/* 처음 이름 묻기 */
+
+.askName {
+  background-color: var(--color-background);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+  top: 0;
+  font-size: 54px;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes hidesplashscreen {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.disappear {
+  animation: hidesplashscreen 0.3s ease-in-out forwards;
+  animation-delay: 2s;
+}
+.askNameText {
+  color: var(--color-font);
+}

@@ -7,7 +7,7 @@
       src="https://kit.fontawesome.com/433848c43a.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="src/weather.js" defer></script>
     <script src="src/greeting.js" defer></script>
     <script src="src/clock.js" defer></script>
@@ -15,22 +15,27 @@
     <title>My Momentem</title>
   </head>
   <body>
-    <!-- 간단 북마크바 -->
-    <section class="bookmark">
-      <i class="fab fa-instagram"></i>
-      <i class="fab fa-youtube"></i>
-      <i class="fab fa-google"></i>
-      <i class="far fa-envelope"></i>
-      <img src="img/nomad.svg" alt="nomadicon" />
-    </section>
-    <!-- 날씨 -->
-    <section class="weather">
-      <div class="weather-info">
-        <img src="#" alt="weathericon" class="weather-info__icon" />
-        <span class="weather-info__temper">11도</span>
-      </div>
-      <div class="weather-city">지역표시</div>
-    </section>
+    <!-- Top-Bar : 북마크, 날씨 -->
+    <div class="top">
+      <!-- 간단 북마크바 -->
+      <section class="bookmark">
+        <a href="" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="" target="_blank"><i class="fab fa-google"></i></a>
+        <a href="" target="_blank"><i class="far fa-envelope"></i></a>
+        <a href="" target="_blank"
+          ><img src="img/nomad.svg" alt="nomadicon"
+        /></a>
+      </section>
+      <!-- 날씨 -->
+      <section class="weather">
+        <div class="weather-info">
+          <img src="#" alt="weathericon" class="weather-info__icon" />
+          <span class="weather-info__temper">11도</span>
+        </div>
+        <div class="weather-city">지역표시</div>
+      </section>
+    </div>
     <!-- 이름 묻기 -->
     <section class="askName">
       <form action="" class="askNameForm">
@@ -42,7 +47,8 @@
     <h1 class="helloScreen"></h1>
     <section class="greeting">
       <span class="greetingText">인사문구</span>
-      <span class="greetingName">입력한 이름</span>
+      <input type="text" class="greetingName" />
+      <span class="greetingCall"></span>
     </section>
     <button class="testBtn">리셋</button>
     <!-- 시간 -->
