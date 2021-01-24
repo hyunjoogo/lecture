@@ -51,7 +51,7 @@
         <section class="time">
           <span class="timeTitle">00:00</span>
           <div class="clockswitch">
-            <span>12/24h 변경</span>
+            <span>12h / 24h</span>
             <input type="checkbox" name="" id="hour12" />
             <label for="hour12">
               <span>선택</span>
@@ -60,9 +60,8 @@
         </section>
         <!-- 인사 문구 -->
         <section class="greeting">
-          <span class="greetingText">인사문구</span>
-          <input type="text" class="greetingName" />
-          <span class="greetingCall"></span>
+          <p class="greetingText">인사문구</p>
+          <p class="greetingName"></p>
         </section>
         <!-- To-Do List -->
         <section class="todolist">
@@ -70,6 +69,9 @@
           <form action="#" class="todoform">
             <input type="text" name="item" placeholder="할 일을 적으세요 🙌" />
           </form>
+          <div class="deltodo">
+            <i class="fas fa-redo"></i>
+          </div>
           <div class="pending">
             <h3>아직 할 일 🤔</h3>
             <ul class="pendingtodo"></ul>
@@ -79,7 +81,6 @@
             <ul class="finishedtodo"></ul>
           </div>
         </section>
-        <button class="testBtn">리셋</button>
       </div>
       <!-- Middel-right : 액자 -->
       <div class="middle-right">

@@ -3,6 +3,7 @@
 const addTodos = document.querySelector(".todoform");
 const pendingTodo = document.querySelector(".pendingtodo");
 const finishedTodo = document.querySelector(".finishedtodo");
+const delToDo = document.querySelector(".deltodo");
 
 let toDos = JSON.parse(localStorage.getItem("PENDING")) || [];
 let finishToDos = JSON.parse(localStorage.getItem("FINISHED")) || [];
@@ -100,9 +101,24 @@ function toggleDone(e) {
   }
 }
 
+function clearToDo(e) {
+  if (e.target.className === "deltodo") {
+    return;
+  } else {
+    console.log("d");
+    toDos = [];
+    finishToDos = [];
+    localStorage.setItem("PENDING", JSON.stringify(toDos));
+    localStorage.setItem("FINISHED", JSON.stringify(finishToDos));
+    fillList(toDos, pendingTodo);
+    fillList(finishToDos, finishedTodo);
+  }
+}
+
 finishedTodo.addEventListener("click", toggleDone);
 pendingTodo.addEventListener("click", toggleDone);
 addTodos.addEventListener("submit", addItem);
+delToDo.addEventListener("click", clearToDo);
 
 fillList(toDos, pendingTodo);
 fillList(finishToDos, finishedTodo);
