@@ -5,7 +5,7 @@
 @import "middle.css";
 @import "togglebtn.css";
 @import "greeting.css";
-
+@import "todo.css";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -38,6 +38,11 @@ input {
   font-family: "DM sans",  sans-serif;
 }
 
+button {
+  background-color: inherit;
+  border: none;
+}
+
 input {
   border: none;
   background-color: inherit;
@@ -49,6 +54,12 @@ input {
 
 input:focus {
   outline: none;
+}
+
+ul,
+li {
+  padding-inline-start: 0;
+  list-style: none;
 }
 
 .noshow {

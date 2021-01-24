@@ -15,7 +15,7 @@ label {
 label:after {
   content: "";
   position: absolute;
-  left: 3px;
+  left: 5px;
   top: 50%;
   width: 15px;
   height: 15px;
@@ -26,12 +26,12 @@ label:after {
   transition: all 400ms;
 }
 input:checked + label {
-  background: #4fbe79;
+  background: var(--color-menu);
 }
 input:checked + label:after {
   /* label:after : 원 width + left */
-  left: calc(100% - 18px);
-  right: 3px;
+  left: calc(100% - 20px);
+  right: 5px;
 }
 label span {
   display: none;

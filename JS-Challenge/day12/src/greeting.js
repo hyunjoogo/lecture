@@ -4,7 +4,6 @@ const askNameSection = document.querySelector(".askName");
 const helloScreen = document.querySelector(".helloScreen");
 const greetingText = document.querySelector(".greetingText");
 const greetingName = document.querySelector(".greetingName");
-const greetingCall = document.querySelector(".greetingCall");
 
 const testBtn = document.querySelector(".testBtn");
 
@@ -51,20 +50,12 @@ function greetingUser(text) {
   }
 
   greetingText.innerText = greetingMessage(hours);
-  greetingName.value = text;
-  greetingCall.innerText = "님";
+  greetingName.innerText = `${text}님`;
 }
 
 function askUserName() {
   askNameForm.addEventListener("submit", handleSubmit);
 }
-
-function changeName() {
-  console.log(greetingName.value);
-  saveName(greetingName.value);
-  greetingName.value = `${greetingName.value}`;
-}
-greetingName.addEventListener("change", changeName);
 
 function loadUser() {
   const currentUser = localStorage.getItem(USER_LS);
@@ -76,9 +67,3 @@ function loadUser() {
   }
 }
 loadUser();
-
-// 테스트 버튼
-testBtn.addEventListener("click", del);
-function del() {
-  localStorage.removeItem(USER_LS);
-}

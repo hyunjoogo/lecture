@@ -1,8 +1,7 @@
 const timeTitle = document.querySelector(".timeTitle");
 const hour12 = document.querySelector("label");
 const hour12Input = document.querySelector("#hour12");
-const analog = document.querySelector(".analog");
-const digital = document.querySelector(".digital");
+const clockSwitch = document.querySelector(".clockswitch");
 
 let options = { hour: "numeric", minute: "numeric", hour12: false };
 
