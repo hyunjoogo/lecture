@@ -9,6 +9,7 @@ function showWeather(lat, lon) {
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_Key}&lang=kr&units=metric`
   )
     .then(function (response) {
+      console.log();
       return response.json();
     })
     .then(function (json) {
@@ -18,7 +19,7 @@ function showWeather(lat, lon) {
       console.log(icon);
       weatherTemp.innerText = `${Math.round(temperature)}°`;
       weatherCity.innerText = `${city}`;
-      locationIcon.innerHTML = `<img src="icons/${icon}.png">`;
+      locationIcon.setAttribute("src", `icons/${icon}.png`);
     });
 }
 

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="src/style.css" />
     <script src="src/weather.js" defer></script>
     <script src="src/greeting.js" defer></script>
+    <script src="src/clock.js" defer></script>
+    <script src="src/todolist.js" defer></script>
     <title>My Momentem</title>
   </head>
   <body>
@@ -24,7 +26,7 @@
     <!-- 날씨 -->
     <section class="weather">
       <div class="weather-info">
-        <img src="icons/01d.png" alt="weathericon" class="weather-info__icon" />
+        <img src="#" alt="weathericon" class="weather-info__icon" />
         <span class="weather-info__temper">11도</span>
       </div>
       <div class="weather-city">지역표시</div>
@@ -46,8 +48,28 @@
     <!-- 시간 -->
     <section class="time">
       <span class="timeTitle">00:00</span>
+      <input type="checkbox" name="" id="hour12" />
+      <label for="hour12">
+        <span>선택</span>
+      </label>
+      <button class="analog"><i class="far fa-clock"></i></button>
+      <button class="digital"><i class="fab fa-draft2digital"></i></button>
     </section>
     <!-- To-Do List -->
+    <section class="todolist">
+      <h1>To-Do List</h1>
+      <form action="#" class="todoform">
+        <input type="text" name="item" placeholder="할 일을 적으세요 🙌" />
+      </form>
+      <div class="pending">
+        <h3>아직 할 일 🤔</h3>
+        <ul class="pendingtodo"></ul>
+      </div>
+      <div class="finished">
+        <h3>완료 된 일 🎉</h3>
+        <ul class="finishedtodo"></ul>
+      </div>
+    </section>
     <!-- 랜덤 배경 액자 -->
   </body>
 </html>

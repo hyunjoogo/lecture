@@ -61,7 +61,6 @@ function loadUser() {
   if (currentUser === null) {
     askUserName();
   } else {
-    console.log("인사문구 나옴");
     greetingUser(currentUser);
   }
 }
