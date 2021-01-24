@@ -28,14 +28,14 @@
 }
 
 .row1 > div:nth-child(1) {
-  flex-grow: 1;
+  flex-grow: 0.2;
   background-color: var(--color-background);
 }
 .row1 > div:nth-child(2) {
   flex-grow: 10;
 }
 .row1 > div:nth-child(3) {
-  flex-grow: 1;
+  flex-grow: 0.1;
   background-color: var(--color-background);
 }
 
@@ -52,37 +52,37 @@
 }
 
 .row5 > div:nth-child(1) {
-  flex-grow: 2;
+  flex-grow: 0.2;
   background-color: var(--color-background);
 }
 .row5 > div:nth-child(2) {
   flex-grow: 10;
 }
 .row5 > div:nth-child(3) {
-  flex-grow: 1;
+  flex-grow: 0.2;
   background-color: var(--color-background);
 }
 
 .row7 > div:nth-child(1) {
-  flex-grow: 2;
+  flex-grow: 0.8;
   background-color: var(--color-background);
 }
 .row7 > div:nth-child(2) {
   flex-grow: 10;
 }
 .row7 > div:nth-child(3) {
-  flex-grow: 0.4;
+  flex-grow: 0.8;
   background-color: var(--color-background);
 }
 
 .row9 > div:nth-child(1) {
-  flex-grow: 1;
+  flex-grow: 0.4;
   background-color: var(--color-background);
 }
 .row9 > div:nth-child(2) {
   flex-grow: 10;
 }
 .row9 > div:nth-child(3) {
-  flex-grow: 1;
+  flex-grow: 0.2;
   background-color: var(--color-background);
 }

@@ -4,6 +4,8 @@ const askNameSection = document.querySelector(".askName");
 const helloScreen = document.querySelector(".helloScreen");
 const greetingText = document.querySelector(".greetingText");
 const greetingName = document.querySelector(".greetingName");
+const topbar = document.querySelector(".top");
+const middle = document.querySelector(".middle");
 
 const testBtn = document.querySelector(".testBtn");
 
@@ -13,6 +15,12 @@ function saveName(text) {
   localStorage.setItem(USER_LS, text);
 }
 
+function show() {
+  askNameSection.classList.add("noshow");
+  topbar.classList.add("show");
+  middle.classList.add("show");
+}
+
 function handleSubmit(e) {
   e.preventDefault();
   const currentValue = askNameInput.value;
@@ -20,9 +28,7 @@ function handleSubmit(e) {
   askNameInput.value = "";
   askNameForm.classList.add("disappear");
   helloScreen.classList.add("appear");
-  helloScreen.addEventListener("animationend", () =>
-    askNameSection.classList.add("noshow")
-  );
+  helloScreen.addEventListener("animationend", show);
   helloScreen.innerText = `반가워요! ${currentValue}님`;
   greetingUser(currentValue);
   // setTimeout(function () {
@@ -63,7 +69,10 @@ function loadUser() {
     askUserName();
   } else {
     askNameSection.classList.add("noshow");
+    topbar.classList.add("show");
+    middle.classList.add("show");
     greetingUser(currentUser);
   }
 }
+
 loadUser();
