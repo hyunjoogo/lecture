@@ -16,13 +16,5 @@ hour12.addEventListener("click", (e) => {
   options.hour12 = !options.hour12;
 });
 
-function changeClock(e) {
-  console.log(e.target.className);
-  console.log(e.target.parentNode.className);
-  // 디지털로 바꾸기
-  timeTitle.style.display = "block";
-}
-digital.addEventListener("click", changeClock);
-
 nowTime();
 setInterval(nowTime, 1000);

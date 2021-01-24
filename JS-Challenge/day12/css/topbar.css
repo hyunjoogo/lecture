@@ -29,6 +29,7 @@
   flex-direction: column;
   justify-content: center;
   padding-bottom: 10px;
+  padding-right: 10px;
 }
 .weather-info {
   display: flex;

@@ -1,6 +1,6 @@
 .middle {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-grow: 1;
 }
 
@@ -9,5 +9,9 @@
 }
 
 .middle-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
 }

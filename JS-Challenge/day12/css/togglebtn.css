@@ -6,8 +6,8 @@
 label {
   display: block;
   position: relative;
-  width: 200px;
-  height: 60px;
+  width: 40px;
+  height: 20px;
   background-color: #d3d3d3;
   border-radius: 60px;
   transition: background 400ms;
@@ -15,10 +15,10 @@ label {
 label:after {
   content: "";
   position: absolute;
-  left: 7.5px;
+  left: 3px;
   top: 50%;
-  width: 55px;
-  height: 55px;
+  width: 15px;
+  height: 15px;
   border-radius: 100%;
   background-color: #ffffff;
   transform: translateY(-50%);
@@ -29,9 +29,9 @@ input:checked + label {
   background: #4fbe79;
 }
 input:checked + label:after {
-  /* label:after : width + left */
-  left: calc(100% - 62.5px);
-  right: 7.5px;
+  /* label:after : 원 width + left */
+  left: calc(100% - 18px);
+  right: 3px;
 }
 label span {
   display: none;

@@ -1,9 +1,10 @@
 @import "topbar.css";
 @import "clock.css";
-@import "togglebtntest.css";
 @import "frame.css";
 @import "askname.css";
 @import "middle.css";
+@import "togglebtn.css";
+@import "greeting.css";
 
 * {
   box-sizing: border-box;
