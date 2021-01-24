@@ -1,0 +1,38 @@
+/* 체크박스 토글버튼 */
+#hour12 {
+  position: absolute;
+  left: -1000%;
+}
+label {
+  display: block;
+  position: relative;
+  width: 200px;
+  height: 60px;
+  background-color: #d3d3d3;
+  border-radius: 60px;
+  transition: background 400ms;
+}
+label:after {
+  content: "";
+  position: absolute;
+  left: 7.5px;
+  top: 50%;
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  background-color: #ffffff;
+  transform: translateY(-50%);
+  box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
+  transition: all 400ms;
+}
+input:checked + label {
+  background: #4fbe79;
+}
+input:checked + label:after {
+  /* label:after : width + left */
+  left: calc(100% - 62.5px);
+  right: 7.5px;
+}
+label span {
+  display: none;
+}
