@@ -1,6 +1,10 @@
 @import "topbar.css";
-@import "togglebtn.css";
+@import "clock.css";
+@import "togglebtntest.css";
 @import "frame.css";
+@import "askname.css";
+@import "middle.css";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,6 +17,14 @@
   --color-point: #dcbc95;
   --color-subfont: #cccdcd;
   --color-menu: #2d3034;
+}
+
+body {
+  background-color: var(--color-background);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a  {
@@ -37,34 +49,20 @@ input {
 input:focus {
   outline: none;
 }
-/* 처음 이름 묻기 */
 
-.askName {
-  background-color: var(--color-background);
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  position: absolute;
-  top: 0;
-  font-size: 54px;
-  align-items: center;
-  justify-content: center;
+.noshow {
+  visibility: hidden;
 }
 
-@keyframes hidesplashscreen {
+@keyframes showscreen {
   from {
-    opacity: 1;
+    opacity: 0;
   }
   to {
-    opacity: 0;
-    visibility: hidden;
+    visibility: visible;
+    opacity: 1;
   }
 }
-
-.disappear {
-  animation: hidesplashscreen 0.3s ease-in-out forwards;
-  animation-delay: 2s;
-}
-.askNameText {
-  color: var(--color-font);
+.show {
+  animation: showscreen 1s ease-in-out forwards;
 }
