@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title #{home}
+  body
+    block bodytitle
+    h3 다른 페이지 안내해드리겠습니다
+    include ./navi
+    include ./footer
+
+    //- block '이름'을 하면 하나의 공간이 생기는 거네
+    //- layout은 extend만 하면 무조건 나오는 하나의 틀
