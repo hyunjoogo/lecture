@@ -21,7 +21,7 @@ class Control extends Component {
             href="/edit"
             onClick={function (e) {
               e.preventDefault();
-              this.props.onChangeMode("create");
+              this.props.onChangeMode("edit");
             }.bind(this)}
           >
             Edit
@@ -33,7 +33,7 @@ class Control extends Component {
             value="Delete"
             onClick={function (e) {
               e.preventDefault();
-              this.props.onChangeMode("create");
+              this.props.onChangeMode("delete");
             }.bind(this)}
           ></input>
         </li>
