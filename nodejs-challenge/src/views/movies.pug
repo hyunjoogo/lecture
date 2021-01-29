@@ -1,6 +1,9 @@
 doctype html
 html
   head
-    title ${locals.home}
+    title #{locals.home}
   body
-    h3 다른 페이지 안내해드리겠습니다
+    h3 Movies!!
+    each movie in movies
+      a(href=movie.id) 
+          h4=movie.title
