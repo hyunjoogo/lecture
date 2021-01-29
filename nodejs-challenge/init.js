@@ -1,6 +1,6 @@
 // 서버 시작시 처음 로드 되는 것
 
-import app from "./index";
+import app from "./src/index";
 
 const PORT = 4000;
 
