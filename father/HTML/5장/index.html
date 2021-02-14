@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <h1>accesskey : 단축키</h1>
+    <nav>
+      <p>
+        <a accesskey="P" href="#">P : 드래그& 드롭</a>
+        <a accesskey="T" href="#">T : 그리드 합계</a>
+        <a accesskey="C" href="#">C : 체크박스</a>
+      </p>
+    </nav>
+
+    <h1>class:클래스</h1>
+    <p class="classAttribute">class</p>
+
+    <h1>contenteditable : 텍스트 편집</h1>
+    <p>
+      <label>메모 입력 (a 1): <input type="text accesskey="a 1"></label>
+    </p>
+    <ol contenteditable="true">
+      <li id="soccer">축구</li>
+      <li id="swim" contenteditable="false">수영</li>
+      <li id="basketball">농구</li>
+    </ol>
+
+    <h1>contextmenu</h1>
+    <form>
+      <p contextmenu="choiceMenu">우측 버튼을 클릭하면 메뉴가 표시됩니다.</p>
+      <menu type="context" id="choiceMenu">
+        <command label="이미지 추가" onclick="addImage()" />
+        <command label="버튼 표시" onclick="showButton()" />
+      </menu>
+    </form>
+
+    <h1>dataset : 커스텀 데이터</h1>
+    <ol>
+      <li id="soccera" data-time="90분" data-player="11명">축구</li>
+    </ol>
+
+    <h1>dir : 텍스트 방향 형식</h1>
+    <p>123456789</p>
+    <p dir="rtl" style="width: 200px">123456789</p>
+    <p style="direction: rtl; unicode-bidi: bidi-override; width: 200px">
+      123456789
+    </p>
+    <p>
+      <span style="direction: rtl; unicode-bidi: bidi-override">123456789</span>
+    </p>
+
+    <h1>draggable : 드래그 여부</h1>
+
+    <h1>hidden : 엘리먼트의 다큐먼트 반영</h1>
+    <button id="clickButton" type="button" onclick="loginClick()">
+      로그인하려면 클릭하세요.
+    </button>
+    <p hidden>
+      <label
+        >아이디:
+        <input type="text" />
+      </label>
+    </p>
+
+    <h1>id : 엘리먼트 식별자</h1>
+    <p id="cssElement">id로 CSS스타일 적용</p>
+
+    <h1>spellcheck</h1>
+    <p spellcheck="true">
+      <input value="this is a penPP" />
+    </p>
+
+    <div contenteditable="true">
+      <span spellcheck="true">HellowW</span>
+    </div>
+
+    <h1>tabindex : 내비게이션 순서</h1>
+    <p><input type="text" tabindex="2" value="두번째 tabindex" /></p>
+    <p tabindex="1">첫번째 tabindex</p>
+
+    <p>tabindex 지정안함</p>
+    <p tabindex="0">tabindex 0 지정</p>
+
+    <p><input type="text" value="tabindex 지정안함" /></p>
+    <p tabindex="-3">tabindex -3 지정</p>
+
+    <h1>title : 엘리먼트 추가 정보</h1>
+    <p><a href="#" title="추가정보입니다">spsp?</a></p>
+    <p title="선조 엘리멘트 title 속성">
+      빈 칸에 <input type="text" />값을 입력하세요.
+    </p>
+
+    <p title="선조 엘리멘트 title 속성">
+      빈 칸에 <input type="text" title="input 엘리먼트 title 속성" />값을
+      입력하세요.
+    </p>
+  </body>
+</html>
